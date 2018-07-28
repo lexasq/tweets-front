@@ -5,19 +5,19 @@ import { NgModule } from '@angular/core';
 // components
 import { TweetsByHashTagComponent } from './components/hashTag/tweetsByHashTag.component';
 import { TweetsByUserPageComponent } from './components/userPage/tweetsByUserPage.component';
-import {SearchTweetsPageComponent} from './components/searchTweetsPage/searchTweetsPage.component';
+import {SearchTweetsComponent} from './components/searchTweets/searchTweets.component';
 
 @NgModule({
   declarations: [
     TweetsByHashTagComponent,
     TweetsByUserPageComponent,
-    SearchTweetsPageComponent
+    SearchTweetsComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [SearchTweetsPageComponent],
-  exports: [SearchTweetsPageComponent]
+  bootstrap: [SearchTweetsComponent],
+  exports: [SearchTweetsComponent]
 })
 export class SearchTweetsModule { }
