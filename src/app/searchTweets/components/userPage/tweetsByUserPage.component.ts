@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SearchTweetsService } from '../../services/searchTweets';
+import { SearchTweetsService } from '../../services/searchTweets.service';
 
 @Component({
   selector: 'app-tweets-by-user-page',

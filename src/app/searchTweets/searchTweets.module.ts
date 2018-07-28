@@ -8,7 +8,7 @@ import { TweetsByUserPageComponent } from './components/userPage/tweetsByUserPag
 import {SearchTweetsComponent} from './components/searchTweets/searchTweets.component';
 
 // services
-import { SearchTweetsService } from './services/searchTweets';
+import { SearchTweetsService } from './services/searchTweets.service';
 
 
 @NgModule({
