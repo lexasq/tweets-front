@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { TabModule } from 'angular-tabs-component'
 
 // components
 import { TweetsByHashTagComponent } from './components/hashTag/tweetsByHashTag.component';
@@ -18,7 +18,8 @@ import { SearchTweetsService } from './services/searchTweets';
     SearchTweetsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    TabModule
   ],
   providers: [SearchTweetsService],
   bootstrap: [SearchTweetsComponent],

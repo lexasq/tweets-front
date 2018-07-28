@@ -2,5 +2,9 @@
   "/hashtags/**": {
     "target": "http://localhost:5000",
     "secure": false
+  },
+  "/users/**": {
+    "target": "http://localhost:5000",
+    "secure": false
   }
 }
