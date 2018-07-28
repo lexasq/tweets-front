@@ -14,11 +14,11 @@ export class SearchTweetsService {
   hashtag: string;
   constructor(private $http: HttpClient) {
     // DI
-    this.hashtag = 'Python';
+    this.hashtag = '/Python';
     this.getTweetsByHashtags();
   }
   getTweetsByHashtags () {
-    const query = `${environment.api_url}${this.hashtag}?pages_limit=3&wait=0`;
+    const query = `${environment.hashtagsSearch}${this.hashtag}?pages_limit=3&wait=0`;
     return this.$http.get(query, httpOptions);
   }
 
