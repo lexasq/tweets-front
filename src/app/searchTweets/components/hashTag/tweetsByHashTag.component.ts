@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SearchTweetsService } from '../../services/searchTweets';
 
 @Component({
   selector: 'app-tweets-by-hashtag',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./tweetsByHashTag.component.css']
 })
 export class TweetsByHashTagComponent {
-  title = 'tweets-front';
+  constructor(private SearchTweetsService: SearchTweetsService) {
+    this.SearchTweetsService = SearchTweetsService;
+
+    this.SearchTweetsService.getTweetsByHashtags().subscribe(project => {
+      console.log(project);
+    });
+  }
 }

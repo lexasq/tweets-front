@@ -7,6 +7,10 @@ import { TweetsByHashTagComponent } from './components/hashTag/tweetsByHashTag.c
 import { TweetsByUserPageComponent } from './components/userPage/tweetsByUserPage.component';
 import {SearchTweetsComponent} from './components/searchTweets/searchTweets.component';
 
+// services
+import { SearchTweetsService } from './services/searchTweets';
+
+
 @NgModule({
   declarations: [
     TweetsByHashTagComponent,
@@ -16,7 +20,7 @@ import {SearchTweetsComponent} from './components/searchTweets/searchTweets.comp
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [SearchTweetsService],
   bootstrap: [SearchTweetsComponent],
   exports: [SearchTweetsComponent]
 })
