@@ -7,10 +7,9 @@ import { SearchTweetsService } from '../../services/searchTweets';
   styleUrls: ['./tweetsByHashTag.component.css']
 })
 export class TweetsByHashTagComponent {
-  constructor(private SearchTweetsService: SearchTweetsService) {
-    this.SearchTweetsService = SearchTweetsService;
+  constructor(private SearchTweets: SearchTweetsService) {
 
-    this.SearchTweetsService.getTweetsByHashtags().subscribe(project => {
+    this.SearchTweets.getTweetsByHashtags('/Python').subscribe(project => {
       console.log(project);
     });
   }

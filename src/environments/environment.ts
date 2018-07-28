@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  hashtagsSearch: '/hashtags'
+  hashtagsSearch: '/hashtags',
+  usersSearch: '/users',
+  additionalParams: '?pages_limit=3&wait=0'
 };
 
 /*

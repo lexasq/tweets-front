@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SearchTweetsService } from '../../services/searchTweets';
 
 @Component({
   selector: 'app-tweets-by-user-page',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./tweetsByUserPage.component.css']
 })
 export class TweetsByUserPageComponent {
-  title = 'tweets-front';
+  constructor(private SearchTweets: SearchTweetsService) {
+    this.SearchTweets.getTweetsByPageName('/Twitter').subscribe(project => {
+      console.log(project);
+    });
+  }
 }

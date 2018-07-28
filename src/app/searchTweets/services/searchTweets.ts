@@ -11,14 +11,14 @@ const httpOptions = {
 
 export class SearchTweetsService {
   /** @ngInject */
-  hashtag: string;
   constructor(private $http: HttpClient) {
-    // DI
-    this.hashtag = '/Python';
-    this.getTweetsByHashtags();
   }
-  getTweetsByHashtags () {
-    const query = `${environment.hashtagsSearch}${this.hashtag}?pages_limit=3&wait=0`;
+  getTweetsByHashtags (hashtag) {
+    const query = `${environment.hashtagsSearch}${hashtag}${environment.additionalParams}`;
+    return this.$http.get(query, httpOptions);
+  }
+  getTweetsByPageName (user) {
+    const query = `${environment.usersSearch}${user}${environment.additionalParams}`;
     return this.$http.get(query, httpOptions);
   }
 
