@@ -6,7 +6,7 @@ export class TweetModel {
     id: number
   };
   date: string;
-  hastags: [string];
+  hashtags: [string];
   likes: number;
   replies: number;
   retweets: number;

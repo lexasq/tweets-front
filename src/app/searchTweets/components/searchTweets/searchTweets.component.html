@@ -1,12 +1,87 @@
+<h3 class="text-center">
+  Angular Twitter
+</h3>
+<div class="float-right inputs">
+  <div class="col-md-12 input-group">
+    <input type="text"
+           class="form-control"
+           #searchText
+           title="Input searchstring"
+           (keyup)="getTweets(searchText.value, $event)"
+            placeholder="Input hashtag or page name"
+           aria-label="Recipient's username">
 
-<input type="text" #searchText title="Input searchstring" (keyup)="getTweets(searchText.value, $event)" >
-<button (click)="searchType = 'hashtags'">Hashtag search</button>
-<button (click)="searchType = 'userPage'">User search</button>
-<ul  class="list-group">
-  <li *ngFor="let tweet of tweets" class="list-group-item">
-    <div class="tweet">
+    <div class="input-group-append btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-primary" (click)="searchType = 'hashtags'" [ngClass]="{'active': (searchType==='hashtags')}">
+        <input type="radio" name="options" id="option1" autocomplete="off" checked> Hashtag Search
+      </label>
+      <label class="btn btn-primary" (click)="searchType = 'pageName'" [ngClass]="{'active': (searchType==='pageName')}">
+        <input type="radio" name="options" id="option2" autocomplete="off"> User search
+      </label>
+    </div>
+  </div>
+</div>
+<div *ngIf="!!pages">
+  <button *ngFor="let page of range(pages-1); let i = index"
+          (click)="currentpage = i+1; changePage()"
+          class="btn btn-light"
+          [ngClass]="{'active': (i+1 === currentpage )}">
+    {{ i+1 }}
+  </button>
+</div>
+<ul  class="col-md-12 list-group">
+  <li class="list-group-item col-md-12  tweet">
+    <div class="col-md-4 text">
+      <h6>Tweet</h6>
+    </div>
+    <div class="col-md-1 likes">
+      <h6>Likes</h6>
+    </div>
+    <div class="col-md-1 replies">
+      <h6>Replies</h6>
+    </div>
+    <div class="col-md-1 retweets">
+      <h6>Retweets</h6>
+    </div>
+    <div class="col-md-2 hashtags">
+      <h6>Hashtags</h6>
+    </div>
+    <div class="col-md-3 date">
+      <h6>Date</h6>
+    </div>
+  </li>
+  <li class="list-group-item col-md-12  tweet" *ngIf="(pageTweets.length === 0) && !preload">
+    <h1 class="col-md-12 text-center">
+      No results were found
+    </h1>
+  </li>
+  <li class="list-group-item col-md-12  tweet" *ngIf="preload">
+    <h1 class="col-md-12 text-center">
+      Looking for tweets
+    </h1>
+    <div class="loader"></div>
+  </li>
+  <li *ngFor="let tweet of pageTweets; let i = index" class="list-group-item col-md-12 tweet">
+    <div class="col-md-4  text">
       {{ tweet.text }}
+    </div>
+    <div class="col-md-1 likes">
+      {{ (tweet.likes) ? tweet.likes: '-' }}
+    </div>
+    <div class="col-md-1 replies">
+      {{ (tweet.replies) ? tweet.replies: '-' }}
+    </div>
+    <div class="col-md-1 retweets">
+      {{ (tweet.retweets) ? tweet.retweets: '-' }}
+    </div>
+    <div class="col-md-2 hashtags">
+      {{ (tweet.hashtags[0]) ? tweet.hashtags[0]: '-' }}
+      {{ (tweet.hashtags[1]) ? tweet.hashtags[1]: '' }}
+    </div>
+    <div class="col-md-3 date">
+      {{ tweet.date }}
     </div>
   </li>
 </ul>
+
 

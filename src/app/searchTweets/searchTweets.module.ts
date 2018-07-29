@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 
 // components
-// import { TweetsByHashTagComponent } from './components/hashTag/tweetsByHashTag.component';
-// import { TweetsByUserPageComponent } from './components/userPage/tweetsByUserPage.component';
 import {SearchTweetsComponent} from './components/searchTweets/searchTweets.component';
 
 // services
@@ -13,7 +11,6 @@ import { SearchTweetsService } from './services/searchTweets.service';
 
 @NgModule({
   declarations: [
-    // TweetsByHashTagComponent,
     SearchTweetsComponent
   ],
   imports: [
