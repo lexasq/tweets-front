@@ -14,7 +14,7 @@
   margin-bottom: 15px;
 }
 .loader {
-  margin: auto;
+  margin-left: calc(50% - 120px);
   border: 32px solid #f3f3f3; /* Light grey */
   border-top: 32px solid #3498db; /* Blue */
   border-radius: 50%;
