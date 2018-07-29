@@ -8,14 +8,18 @@
            #searchText
            title="Input searchstring"
            (keyup)="getTweets(searchText.value, $event)"
-            placeholder="Input hashtag or page name"
+           placeholder="Input hashtag or page name"
            aria-label="Recipient's username">
 
     <div class="input-group-append btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-primary" (click)="searchType = 'hashtags'" [ngClass]="{'active': (searchType==='hashtags')}">
+      <label class="btn btn-primary"
+             (click)="searchType = 'hashtags'; searchTweets(searchText.value)"
+             [ngClass]="{'active': (searchType==='hashtags')}">
         <input type="radio" name="options" id="option1" autocomplete="off" checked> Hashtag Search
       </label>
-      <label class="btn btn-primary" (click)="searchType = 'pageName'" [ngClass]="{'active': (searchType==='pageName')}">
+      <label class="btn btn-primary"
+             (click)="searchType = 'pageName'; searchTweets(searchText.value)"
+             [ngClass]="{'active': (searchType==='pageName')}">
         <input type="radio" name="options" id="option2" autocomplete="off"> User search
       </label>
     </div>
