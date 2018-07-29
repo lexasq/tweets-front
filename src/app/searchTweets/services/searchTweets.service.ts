@@ -13,6 +13,11 @@ export class SearchTweetsService {
   /** @ngInject */
   constructor(private $http: HttpClient) {
   }
+  static shortenTweets(tweets) {
+    tweets.map(tweet => {tweet.text = (tweet.text.length > 50) ?
+      `${tweet.text.substr(0, 50)}...` : tweet.text ; });
+    return tweets;
+  }
   getTweetsByHashtags (hashtag) {
     const query = `${environment.hashtagsSearch}${hashtag}${environment.additionalParams}`;
     return this.$http.get(query, httpOptions);
@@ -21,6 +26,5 @@ export class SearchTweetsService {
     const query = `${environment.usersSearch}${user}${environment.additionalParams}`;
     return this.$http.get(query, httpOptions);
   }
-
 }
 

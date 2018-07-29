@@ -1,8 +1,12 @@
-<tabs>
-  <tab tabTitle="Hashtag search">
-    <app-tweets-by-hashtag></app-tweets-by-hashtag>
-  </tab>
-  <tab tabTitle="User search">
-    <app-tweets-by-user-page></app-tweets-by-user-page>
-  </tab>
-</tabs>
+
+<input type="text" #searchText title="Input searchstring" (keyup)="getTweets(searchText.value, $event)" >
+<button (click)="searchType = 'hashtags'">Hashtag search</button>
+<button (click)="searchType = 'userPage'">User search</button>
+<ul  class="list-group">
+  <li *ngFor="let tweet of tweets" class="list-group-item">
+    <div class="tweet">
+      {{ tweet.text }}
+    </div>
+  </li>
+</ul>
+
