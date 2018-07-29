@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   hashtagsSearch: '/hashtags/',
   usersSearch: '/users/',
-  additionalParams: '?pages_limit=3&wait=0'
+  additionalParams: '?numberOfPages_limit=3&wait=0'
 };
 
 /*

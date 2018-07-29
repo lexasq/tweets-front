@@ -14,6 +14,12 @@ export class SearchTweetsService {
   /** @ngInject */
   constructor(private $http: HttpClient) {
   }
+
+  /**
+   * Cut the excessive symbols from the tweet text
+   * @param tweets
+   * @returns {[TweetModel]}
+   */
   shortenTweets(tweets: [TweetModel]) {
     tweets.map(tweet => {tweet.text = (tweet.text.length > 50) ?
       `${tweet.text.substr(0, 50)}...` : tweet.text ; });
@@ -23,15 +29,23 @@ export class SearchTweetsService {
     });
     return tweets;
   }
+
   getTweetsByHashtags (hashtag: string) {
     const query = `${environment.hashtagsSearch}${hashtag}${environment.additionalParams}`;
     return this.$http.get(query, httpOptions);
   }
+
   getTweetsByPageName (user: string) {
     const query = `${environment.usersSearch}${user}${environment.additionalParams}`;
     return this.$http.get(query, httpOptions);
   }
 
+  /**
+   * Returns tweets accordingly to chosen searchType
+   * @param type
+   * @param value
+   * @returns {Observable<Object>}
+   */
   getTweets(type, value) {
     if (type === 'hashtags') {
       return this.getTweetsByHashtags(value);
