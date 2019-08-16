@@ -1,10 +1,18 @@
 {
   "/hashtags/**": {
-    "target": "http://localhost:5000",
-    "secure": false
+    "target": {
+      "host": "am-twitter-scrape.herokuapp.com",
+      "protocol": "https:"
+    },
+    "secure": false,
+    "changeOrigin": true
   },
   "/users/**": {
-    "target": "http://localhost:5000",
-    "secure": false
+    "target": {
+      "host": "am-twitter-scrape.herokuapp.com",
+      "protocol": "https:"
+    },
+    "secure": false,
+    "changeOrigin": true
   }
 }

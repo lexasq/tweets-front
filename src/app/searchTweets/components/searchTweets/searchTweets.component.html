@@ -26,7 +26,7 @@
   </div>
 </div>
 <div *ngIf="!!numberOfPages">
-  <button *ngFor="let page of range(numberOfPages-1); let i = index"
+  <button *ngFor="let _ of range(numberOfPages-1); let i = index"
           (click)="currentpage = i+1; changePage()"
           class="btn btn-light"
           [ngClass]="{'active': (i+1 === currentpage )}">
@@ -65,7 +65,7 @@
     </h1>
     <div class="loader"></div>
   </li>
-  <li *ngFor="let tweet of visibleTweets; let i = index" class="list-group-item col-md-12 tweet">
+  <li *ngFor="let tweet of visibleTweets;" class="list-group-item col-md-12 tweet">
     <div class="col-md-4  text">
       {{ tweet.text }}
     </div>
